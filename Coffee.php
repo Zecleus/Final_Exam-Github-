@@ -3,9 +3,9 @@
 class Coffee extends Beverage{
     protected bool $temp;
 
-    public function __construct($name, $price, $boughtState, $size, $temp)
+    public function __construct($name, $price, $size, $temp)
     {
-        parent::__construct($name, $price, $boughtState, $size);
+        parent::__construct($name, $price, $size);
         $this->temp = $temp;
     }
 

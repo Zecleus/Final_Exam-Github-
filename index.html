@@ -23,119 +23,185 @@
                 </div>
                 <div class="dropdownForm" id="consumables">
                     <h2>CONSUMABLES</h2>
-                    <button class="choice__hover" disabled id="typeButton">Select</button>
+                    <select name = "type" id = "type">
+                        <option disabled selected>Choose</option>
+                        <option value="food">Food</option>
+                        <option value="beverage">Beverages</option>
+                    </select>
+                    <!-- <button class="choice__hover" disabled id="typeButton">Select</button>
                     <div class="choice__menu">
                         <a href="#" id="beverage">Beverages</a>
                         <a href="#" id="food">Food</a>
-                    </div>
+                    </div> -->
                 </div>
-                <div class="dropdownForm" id="menu">
-                    <h2>MENU</h2>
-                    <button class="choice__hover" disabled>Select</button>
+                <div class="dropdownForm" >
+                    <h2>SUBTYPES</h2>
+                    <select name="subtype" id="subtype">
+                        <option disabled selected>Choose</option>
+                    </select>
+                    <!-- <button class="choice__hover" disabled id="subtypeButton">Select</button>
                     <div class="choice__menu" id="choiceMenu" name="choiceMenu">
-                        <a href="#">Insert text</a>
-                    </div>
+                        <a href="#">Please choose a consumable type</a>
+                    </div> -->
                 </div>
                 <br>
-
-                <!-- sizes ni nga part
-                <div class="radio" >
-                    <h2>Sizes</h2>
-                    <input type="radio" id="child" name="age" value="child">
-                    <label for="child">Small</label><br>
-                    <input type="radio" id="adult" name="age" value="adult">
-                    <label for="adult">Medium</label><br>
-                    <input type="radio" id="senior" name="age" value="senior">
-                    <label for="senior">Large</label>
-                </div> -->
-
-                <!-- increase/decrease output
                 
-                <form id="plusMinus">
-                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                    <input type="number" id="number" value="0" />
-                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-                </form>
-                <div class="dropdownForm" id="warmed">
-                    <h2>WARMED</h2>
-                    <button class="choice__hover" disabled>Select</button>
-                    <div class="choice__menu">
-                        <a href="#">Yes</a>
-                        <a href="#">No</a>
-                    </div>
-                </div> -->
+
+                <div class="dropdownForm" id="menu">
+                    <h2>MENU</h2>
+                    <select name="product" id="product">
+                        <option disabled selected>Choose</option>
+                    </select>
+                    <!-- <button class="choice__hover" disabled>Select</button>
+                    <div class="choice__menu" id="productMenu" name="productMenu">
+                        <a href="#">Please choose a subtype type</a>
+                    </div> -->
+                </div>
+                <br>
+                
+                <!-- hot or iced -->
+
+                <div class="radio" id="bevrgTemp"style="display:none">
+                    <h2>Type</h2>
+                    <input type="radio" id="hot" name="temp" value="1">
+                    <label for="hot">Hot</label><br>
+                    <input type="radio" id="iced" name="temp" value="2">
+                    <label for="iced">Iced</label><br>  
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+                <!-- sizes ni nga part -->
+
+                <div class="radio" id="cupSize"style="display:none">
+                    <h2>Sizes</h2>
+                    <input type="radio" id="tall" name="size" value="1">
+                    <label for="tall">Tall</label><br>
+                    <input type="radio" id="grande" name="size" value="2">
+                    <label for="grande">Grande</label><br>
+                    <input type="radio" id="venti" name="size" value="3">
+                    <label for="venti">Venti</label>
+                </div>
+
+                <!-- warmed or not output -->
+                
+                <div class="dropdownForm" id="warmed" style="display:none">
+                    <h2>Do you want your cake warmed?</h2>
+                    <input type="radio" id="warm" name="warmed" value="1">
+                    <label for="warm">Yes please!</label>
+                    <input type="radio" id="cold" name="warmed" value="2">
+                    <label for="cold">No thanks</label>
+                </div>
 
             </form>
         </div>
     </div>
 
     <script>
-        //Consumable Types
-        document.getElementById('beverage').addEventListener("click", getBeverage);
-        document.getElementById('food').addEventListener("click", getFood);
-
-        //Beverages display
-        function getBeverage(){
-            axios
-                .get("dbrequest.php", {
-                    params: {
-                        beverage: true,
-                    }
-                })
-                .then((response) => displayBeverage(response))
-                .catch((error)=> {
-                    console.log(error);
-                });
-            document.getElementById('typeButton').innerText = "Beverage";
-
-        }
-        function displayBeverage(response){
-
-            var result = response;
-
-            var layout = ``;
-            for(i in result.data){
-
-                layout+=
-                "<a href=# id="+
-                result.data[i].subtypeName + ">" +
-                result.data[i].subtypeName + "</a>";
-            }
-
-            document.getElementById('choiceMenu').innerHTML = layout;
-        }
-        //Food display
-        function getFood(){
-            axios
-                .get("dbrequest.php", {
-                    params: {
-                        food: true,
-                    }
-                })
-                .then((response) => displayFood(response))
-                .catch((error)=> {
-                    console.log(error);
-                });
-            document.getElementById('typeButton').innerText = "Food";
-        }
-        function displayFood(response){
-
-            var result = response;
-
-            var layout = ``;
-            for(i in result.data){
-
-                layout+=
-                "<a href=# id="+
-                result.data[i].subtypeName + ">" +
-                result.data[i].subtypeName + "</a>";
-            }
-
-            document.getElementById('choiceMenu').innerHTML = layout;
-        }
+        document.getElementById('type').addEventListener("change", getSubTypes);
         
-        //Consumable Subtypes
-        document.getElementById()
+
+        //Subtypes display
+        function getSubTypes(){
+            var consumable = "";
+            consumable = document.getElementById('type').value;
+
+            if(consumable.localeCompare("beverage") == 0){
+                axios
+                    .get("dbrequest.php", {
+                        params: {
+                            beverage: true,
+                        }
+                    })
+                    .then((response) => displaySubType(response))
+                    .catch((error)=> {
+                        console.log(error);
+                    });
+                    document.getElementById("cupSize").style.display = "block";
+            }
+            else if(consumable.localeCompare("food") == 0){
+                axios
+                    .get("dbrequest.php", {
+                        params: {
+                            food: true,
+                        }
+                    })
+                    .then((response) => displaySubType(response))
+                    .catch((error)=> {
+                        console.log(error);
+                    });
+                    document.getElementById("cupSize").style.display = "none";
+            }
+        }
+        function displaySubType(response){
+
+            var result = response;
+
+            var layout = ``;
+            for(i in result.data){
+                layout+=
+                "<option value="+
+                result.data[i].subtypeID + ">" +
+                result.data[i].subtypeName + "</option>";
+            }
+
+            document.getElementById('subtype').innerHTML = layout;
+        }
+
+        document.getElementById('subtype').addEventListener("change", getProducts);
+
+        //Product Display
+        function getProducts(){
+
+            var products  = "";
+            products = document.getElementById('subtype').value;
+
+            console.log(consumables);
+            axios
+                .get("dbrequest.php", {
+                    params: {
+                        product: products,
+                    }
+                })
+                .then((response) => displayProducts(response))
+                .catch((error)=> {
+                    console.log(error);
+                });
+
+            if(products == 3){
+                document.getElementById("warmed").style.display = "block";
+                document.getElementById("bevrgTemp").style.display = "none";
+            }
+            else if(products == 4 || products == 5){
+                document.getElementById("warmed").style.display = "none";
+                document.getElementById("bevrgTemp").style.display = "block";
+            }
+            else{
+                document.getElementById("warmed").style.display = "none";
+                document.getElementById("bevrgTemp").style.display = "none";
+            }
+        }
+
+        function displayProducts(response){
+            var result = response;
+
+            var layout = ``;
+            for(i in result.data){
+                layout +=
+                "<option value="+
+                result.data[i].productID + ">" +
+                result.data[i].productName + "</option>";
+            }
+
+            document.getElementById('product').innerHTML = layout;
+        }
+    
+
     </script>
 
 

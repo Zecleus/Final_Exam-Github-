@@ -3,10 +3,14 @@
 class Wrap extends Food{
     protected int $sirachaQty;
 
-    public function __construct($name, $price, $boughtState)
+    public function __construct($name, $price, $sirachaQty)
     {
-        parent::__construct($name, $price, $boughtState);
-        $this->sirachaQty = 1;
+        parent::__construct($name, $price);
+        $this->sirachaQty = $sirachaQty;
+    }
+
+    public function getSirachaQty(){
+        return $this->sirachaQty;
     }
 
     public function addSiracha(){

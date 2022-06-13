@@ -4,21 +4,22 @@ class Beverage implements IConsumable{
 
     protected string $name;
     protected float $price;
-    protected bool $boughtState;
     protected string $size;
 
-    public function __construct($name, $price, $boughtState, $size)
+    public function __construct($name, $price, $size)
     {
         $this->name = $name;
         $this->price = $price;
-        $this->boughtState = $boughtState;
         $this->size = $size;
     }
 
-
-    public function toggleBoughtState(){
-        $this->boughtState = !$this->boughtState;
+    public function getName(): float{
+        return $this->name;
     }
+    public function setName($name){
+        $this->name = $name;
+    }
+
 
     public function getPrice(): float{
         return $this->price;

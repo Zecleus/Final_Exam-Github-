@@ -5,19 +5,20 @@ class Food implements IConsumable{
 
     protected string $name;
     protected float $price;
-    protected bool $boughtState;
 
-    public function __construct($name, $price, $boughtState)
+    public function __construct($name, $price)
     {
         $this->name = $name;
         $this->price = $price;
-        $this->boughtState = $boughtState;
     }
 
-
-    public function toggleBoughtState(){
-        $this->boughtState = !$this->boughtState;
+    public function getName(): float{
+        return $this->name;
     }
+    public function setName($name){
+        $this->name = $name;
+    }
+
 
     public function getPrice(): float{
         return $this->price;

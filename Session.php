@@ -51,4 +51,21 @@ class Session {
             return false;
     }
 
+    public static function removeFirstElement($key){
+        $i=0;
+        for($i; $i < (count($_SESSION[$key]) - 1); $i++){
+            $_SESSION[$key][$i] = $_SESSION[$key][$i+1];
+        }
+        unset($_SESSION[$key][$i]);
+    }
+
+    public static function removeSpecificElement($key, $position){
+        $i=0;
+        for($i; $i < (count($_SESSION[$key]) - 1); $i++){
+            if($i >= $position){
+                $_SESSION[$key][$i] = $_SESSION[$key][$i+1];
+            }
+        }
+        unset($_SESSION[$key][$i]);
+    }
 }

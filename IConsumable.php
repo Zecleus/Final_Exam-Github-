@@ -1,7 +1,9 @@
 <?php
 
 interface IConsumable{
-    public function toggleBoughtState();
+
+    public function getName();
+    public function setName($name);
 
     public function getPrice();
     public function setPrice($newPrice);
