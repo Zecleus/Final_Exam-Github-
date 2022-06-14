@@ -6,8 +6,8 @@ use Sessions\Session;
 
 class OrderList{
 
-    public function addOrderWrap(string $name, float $price, $sirachaQty){
-        $wrapItem = new Wrap($name, $price, $sirachaQty);
+    public function addOrderWrap(string $name, float $price, $sirachaQty, $qty){
+        $wrapItem = new Wrap($name, $price, $sirachaQty, $qty);
 
         $additional = $sirachaQty * 5;
         
@@ -23,8 +23,8 @@ class OrderList{
         }
     }
 
-    public function addOatmeal(string $name, float $price){
-        $oatmealItem= new Oatmeal($name, $price);
+    public function addOatmeal(string $name, float $price, $qty){
+        $oatmealItem= new Oatmeal($name, $price, $qty);
 
         if(!Session::has('orderList')){
             $_SESSION['orderList'][0] = $oatmealItem;
@@ -36,8 +36,8 @@ class OrderList{
         }
     }
 
-    public function addCake(string $name, float $price, $warm){
-        $cakeItem = new Cake($name, $price, $warm);
+    public function addCake(string $name, float $price, $warm, $qty){
+        $cakeItem = new Cake($name, $price, $warm, $qty);
 
         if(!Session::has('orderList')){
             $_SESSION['orderList'][0] = $cakeItem;
@@ -49,7 +49,7 @@ class OrderList{
         }
     }
 
-    public function addCoffee(string $name, float $price, $size, $temp){
+    public function addCoffee(string $name, float $price, $size, $temp, $qty){
         if($size == 1){
             $additional = 0;
         }
@@ -60,7 +60,7 @@ class OrderList{
             $additional = 90;
         }
 
-        $coffeeItem = new Coffee($name, $price+$additional, $size, $temp);
+        $coffeeItem = new Coffee($name, $price+$additional, $size, $temp, $qty);
 
         if(!Session::has('orderList')){
             $_SESSION['orderList'][0] = $coffeeItem;
@@ -72,7 +72,7 @@ class OrderList{
         }
     }
 
-    public function addTea(string $name, float $price, $size, $temp){
+    public function addTea(string $name, float $price, $size, $temp, $qty){
         if($size == 1){
             $additional = 0;
         }
@@ -83,7 +83,7 @@ class OrderList{
             $additional = 90;
         }
 
-        $teaItem = new Tea($name, $price+$additional, $size, $temp);
+        $teaItem = new Tea($name, $price+$additional, $size, $temp, $qty);
 
         if(!Session::has('orderList')){
             $_SESSION['orderList'][0] = $teaItem;
@@ -96,7 +96,7 @@ class OrderList{
         
     }
     
-    public function addFrappuccino(string $name, float $price, $size){
+    public function addFrappuccino(string $name, float $price, $size, $qty){
 
         if($size == 1){
             $additional = 0;
@@ -108,7 +108,7 @@ class OrderList{
             $additional = 90;
         }
 
-        $frappuccinoItem = new Frappuccino($name, $price+$additional, $size);
+        $frappuccinoItem = new Frappuccino($name, $price+$additional, $size, $qty);
 
         if(!Session::has('orderList')){
             $_SESSION['orderList'][0] = $frappuccinoItem;

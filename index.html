@@ -58,12 +58,39 @@
                     </div> -->
                 </div>
                 <br>
+
+
+                <div class="radio" id="qty"style="display:block">
+                    <h2>Quantity</h2>
+                    <input type="button" id="addQuantity" value="+">
+                    <input type ="text" id="quantity" style="display: inline" value ="1">
+                    <input type="button" id="minusQuantity" value="-">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                
+
+                <div class="radio" id="siracha"style="display:none">
+                    <h2>Siracha Sauce</h2>
+                    <input type="button" id="addSiracha" value="+">
+                    <input type ="text" id="sirachaAmount" style="display: inline" value ="1" disabled>
+                    <input type="button" id="minusSiracha" value="-">
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
                 
                 <!-- hot or iced -->
 
                 <div class="radio" id="bevrgTemp"style="display:none">
                     <h2>Type</h2>
-                    <input type="radio" id="hot" name="temp" value="1">
+                    <input type="radio" id="hot" name="temp" value="1" checked>
                     <label for="hot">Hot</label><br>
                     <input type="radio" id="iced" name="temp" value="2">
                     <label for="iced">Iced</label><br>  
@@ -80,7 +107,7 @@
 
                 <div class="radio" id="cupSize"style="display:none">
                     <h2>Sizes</h2>
-                    <input type="radio" id="tall" name="size" value="1">
+                    <input type="radio" id="tall" name="size" value="1" checked>
                     <label for="tall">Tall</label><br>
                     <input type="radio" id="grande" name="size" value="2">
                     <label for="grande">Grande</label><br>
@@ -92,7 +119,7 @@
                 
                 <div class="dropdownForm" id="warmed" style="display:none">
                     <h2>Do you want your cake warmed?</h2>
-                    <input type="radio" id="warm" name="warmed" value="1">
+                    <input type="radio" id="warm" name="warmed" value="1" checked>
                     <label for="warm">Yes please!</label>
                     <input type="radio" id="cold" name="warmed" value="2">
                     <label for="cold">No thanks</label>
@@ -104,12 +131,12 @@
 
     <script>
         document.getElementById('type').addEventListener("change", getSubTypes);
-        
 
         //Subtypes display
         function getSubTypes(){
             var consumable = "";
             consumable = document.getElementById('type').value;
+        
 
             if(consumable.localeCompare("beverage") == 0){
                 axios
@@ -142,7 +169,7 @@
 
             var result = response;
 
-            var layout = ``;
+            var layout = `<option disabled selected>Choose</option>`;
             for(i in result.data){
                 layout+=
                 "<option value="+
@@ -161,7 +188,6 @@
             var products  = "";
             products = document.getElementById('subtype').value;
 
-            console.log(consumables);
             axios
                 .get("dbrequest.php", {
                     params: {
@@ -174,14 +200,22 @@
                 });
 
             if(products == 3){
+                document.getElementById("siracha").style.display = "none";
                 document.getElementById("warmed").style.display = "block";
                 document.getElementById("bevrgTemp").style.display = "none";
             }
             else if(products == 4 || products == 5){
+                document.getElementById("siracha").style.display = "none";
                 document.getElementById("warmed").style.display = "none";
                 document.getElementById("bevrgTemp").style.display = "block";
             }
+            else if(products == 1){
+                document.getElementById("siracha").style.display = "block";
+                document.getElementById("warmed").style.display = "none";
+                document.getElementById("bevrgTemp").style.display = "none";
+            }
             else{
+                document.getElementById("siracha").style.display = "none";
                 document.getElementById("warmed").style.display = "none";
                 document.getElementById("bevrgTemp").style.display = "none";
             }
@@ -190,7 +224,8 @@
         function displayProducts(response){
             var result = response;
 
-            var layout = ``;
+            var layout = `<option disabled selected>Choose</option>`;
+
             for(i in result.data){
                 layout +=
                 "<option value="+
@@ -199,8 +234,51 @@
             }
 
             document.getElementById('product').innerHTML = layout;
+
+        }
+
+        //siracha part
+        document.getElementById("addSiracha").addEventListener("click", addSiracha);
+        document.getElementById("minusSiracha").addEventListener("click", minusSiracha);
+
+        function addSiracha(){
+            var siracha = Number(document.getElementById("sirachaAmount").value); 
+            siracha += 1;
+            document.getElementById("sirachaAmount").value = siracha;
+            
+        }
+        function minusSiracha(){
+            var siracha = Number(document.getElementById("sirachaAmount").value); 
+            if(siracha > 1){
+                siracha -= 1;
+            }
+            else {
+                siracha = 1;
+            }
+            document.getElementById("sirachaAmount").value = siracha;
         }
     
+
+         //quantity part
+         document.getElementById("addQuantity").addEventListener("click", addQuantity);
+        document.getElementById("minusQuantity").addEventListener("click", minusQuantity);
+
+        function addQuantity(){
+            var quantity = Number(document.getElementById("quantity").value); 
+            quantity += 1;
+            document.getElementById("quantity").value = quantity;
+            
+        }
+        function minusQuantity(){
+            var quantity = Number(document.getElementById("quantity").value); 
+            if(quantity > 1){
+                quantity -= 1;
+            }
+            else {
+                quantity = 1;
+            }
+            document.getElementById("quantity").value = quantity;
+        }
 
     </script>
 

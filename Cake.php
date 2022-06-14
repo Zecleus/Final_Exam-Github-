@@ -4,9 +4,9 @@ class Cake extends Food{
 
     protected bool $warm;
 
-    public function __construct($name, $price, $warm)
+    public function __construct($name, $price, $warm,$qty)
     {
-        parent::__construct($name, $price);
+        parent::__construct($name, $price, $qty);
         $this->warm = $warm;
     }
 

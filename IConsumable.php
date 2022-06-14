@@ -8,6 +8,7 @@ interface IConsumable{
     public function getPrice();
     public function setPrice($newPrice);
 
+    public function totalPrice();
 
 }
 ?>

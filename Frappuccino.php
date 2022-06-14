@@ -2,8 +2,8 @@
 
 class Frappuccino extends Beverage{
     
-    public function __construct($name, $price,  $size)
+    public function __construct($name, $price,  $size, $qty)
     {
-        parent::__construct($name, $price, $size);
+        parent::__construct($name, $price, $size, $qty);
     }
 }

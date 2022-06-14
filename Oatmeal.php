@@ -2,8 +2,8 @@
 
 class Oatmeal extends Food{
 
-    public function __construct($name, $price)
+    public function __construct($name, $price, $qty)
     {
-        parent::__construct($name, $price);
+        parent::__construct($name, $price, $qty);
     }
 }

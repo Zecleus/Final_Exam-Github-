@@ -3,9 +3,9 @@
 class Tea extends Beverage{
     protected bool $temp;
 
-    public function __construct($name, $price,  $size, $temp)
+    public function __construct($name, $price,  $size, $temp, $qty)
     {
-        parent::__construct($name, $price, $size);
+        parent::__construct($name, $price, $size, $qty);
         $this->temp = $temp;
     }
 

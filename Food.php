@@ -5,11 +5,13 @@ class Food implements IConsumable{
 
     protected string $name;
     protected float $price;
+    protected int $qty;
 
-    public function __construct($name, $price)
+    public function __construct($name, $price, $qty)
     {
         $this->name = $name;
         $this->price = $price;
+        $this->qty = $qty;
     }
 
     public function getName(): float{
@@ -25,6 +27,11 @@ class Food implements IConsumable{
     }
     public function setPrice($newPrice){
         $this->price = $newPrice;
+    }
+
+    public function totalPrice()
+    {
+        return $this->price*$this->qty;
     }
 }
 ?>
