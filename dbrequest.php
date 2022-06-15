@@ -7,6 +7,9 @@ require_once 'init2.php';
 
 use Sessions\Session;
 
+$customerOrderList = new OrderList;
+
+
 try {
     $dbSource = new PDO('mysql:host=localhost;dbname=webstrbks','root','');
 } catch(PDOException $e) {
@@ -23,14 +26,14 @@ if(isset($_GET['beverage'])){
 
 }
 
-else if(isset($_GET['food'])){
+if(isset($_GET['food'])){
     $result = $db->select()->from('ConsumableSubType')->where('typeID', '1')->getAll();
     $jsonResult = json_encode($result);
     echo $jsonResult;
 
 }
 
-else if(isset($_GET['product'])){
+if(isset($_GET['product'])){
     
     $product = $_GET['product'];
 
@@ -56,10 +59,120 @@ else if(isset($_GET['product'])){
 
     $jsonResult = json_encode($result);
     echo $jsonResult;
-
 }
 
+if(isset($_GET['getProductRow'])){
+    $productID = $_GET['getProductRow'];
+    $result = $db->select()->from('ConsumableProduct')->where('productID', $productID)->get();
+    $jsonResult = json_encode($result);
+    echo $jsonResult;
+}   
 
+
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+if(isset($data['order'])){
+    
+    $subtypeID = $data['subtypeID'];
+
+    if($subtypeID === "1"){
+        $data['drinkSize'] = null;
+        $data['drinkType']= null;
+        $data['cakeWarmed']= null;
+        $customerOrderList->addOrderWrap($data['productName'], $data['itemPrice'], $data['sirachaQty'], $data['qty']);
+    }
+    else if($subtypeID === "2"){
+        $data['drinkSize'] = null;
+        $data['drinkType']= null;
+        $data['cakeWarmed']= null;
+        $data['sirachaQty'] = null;
+        $customerOrderList->addOatmeal($data['productName'], $data['itemPrice'], $data['qty']);
+    }
+    else if($subtypeID === "3"){
+        $data['drinkSize'] = null;
+        $data['drinkType']= null;
+        $data['sirachaQty'] = null;
+
+
+        $customerOrderList->addCake($data['productName'], $data['itemPrice'], $data['cakeWarmed'], $data['qty']);
+
+        if( $data['cakeWarmed'] == "1"){
+            $data['cakeWarmed'] = "Yes";
+        }
+        else if ( $data['cakeWarmed'] == "2"){
+            $data['cakeWarmed'] == "No";
+        }
+    }
+    else if($subtypeID === "4"){
+        
+        $customerOrderList->addCoffee($data['productName'], $data['itemPrice'], $data['drinkSize'],  $data['drinkType'], $data['qty']);
+
+        if($data['drinkSize'] === "1"){
+            $data['drinkSize'] = "Tall";
+        }
+        else if($data['drinkSize'] === "2"){
+            $data['drinkSize'] = "Grande";
+        }
+        else if($data['drinkSize'] === "3"){
+            $data['drinkSize'] = "Venti";
+        }
+
+        $data['sirachaQty'] = null;
+        $data['cakeWarmed'] = null;
+        
+    }
+    else if($subtypeID === "5"){
+
+        $customerOrderList->addTea($data['productName'], $data['itemPrice'], $data['drinkSize'],  $data['drinkType'], $data['qty']);
+
+        if($data['drinkSize'] == "1"){
+            $data['drinkSize'] = "Tall";
+        }
+        else if($data['drinkSize'] == "2"){
+            $data['drinkSize'] = "Grande";
+        }
+        else if($data['drinkSize'] == "3"){
+            $data['drinkSize'] = "Venti";
+        }
+
+        $data['sirachaQty'] = null;
+        $data['cakeWarmed'] = null;
+
+    }
+    else if($subtypeID === "6"){
+
+        $customerOrderList->addFrappuccino($data['productName'], $data['itemPrice'], $data['drinkSize'], $data['qty']);
+
+        if($data['drinkSize'] == "1"){
+            $data['drinkSize'] = "Tall";
+        }
+        else if($data['drinkSize'] == "2"){
+            $data['drinkSize'] = "Grande";
+        }
+        else if($data['drinkSize'] == "3"){
+            $data['drinkSize'] = "Venti";
+        }
+
+        $data['sirachaQty'] = null;
+        $data['cakeWarmed'] = null;
+        $data['drinkType']= null;
+    }
+
+    $noOfItemsInReceipt = count($_SESSION['orderList']);
+
+    $totalPrice = $_SESSION['orderList'][$noOfItemsInReceipt-1]->getTotalPrice();
+
+    $result = $db->table('orders')->insert([$noOfItemsInReceipt, $data['productName'], $data['itemPrice'], $data['qty'], $data['sirachaQty'], $data['drinkType'], $data['drinkSize'], $data['cakeWarmed'], $totalPrice]);
+    
+}
+
+if(isset($_GET['order'])){
+    $result = $db->select()->from('orders')->getAll();
+   
+    $jsonResult = json_encode($result);
+    echo $jsonResult;
+}
     
     
 

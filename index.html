@@ -71,7 +71,7 @@
                 <br>
                 <br>
                 <br>
-                
+
 
                 <div class="radio" id="siracha"style="display:none">
                     <h2>Siracha Sauce</h2>
@@ -125,6 +125,13 @@
                     <label for="cold">No thanks</label>
                 </div>
 
+                <div id="orderBtn">
+                    <input type="button" id="orderItem" name="orderItem" value="Order Item" >
+                </div>
+
+                <div id="testReceipt">
+
+                </div>
             </form>
         </div>
     </div>
@@ -280,6 +287,157 @@
             document.getElementById("quantity").value = quantity;
         }
 
+        //order button
+        document.getElementById('orderItem').addEventListener('click', getRow);
+
+        function getRow(){
+
+            var products = "";
+            products = document.getElementById('product').value;
+
+            axios
+                .get("dbrequest.php", {
+                    params: {
+                        getProductRow: products,
+                    }
+                })
+                .then((response) => putOrderToSession(response))
+                .catch((error)=> {
+                    console.log(error);
+                });
+        }
+
+
+
+        function putOrderToSession(response){
+
+            var name, subtype, price, quantity, sirachaQty, type, size, warmed, price;
+
+            name = response.data.productName;
+            subtype = response.data.subtypeID;
+            price = response.data.price;
+            
+            quantity = document.getElementById('quantity').value;
+            sirachaQuantity = document.getElementById('sirachaAmount').value;
+            
+            if(document.getElementById('hot').checked){
+                type = document.getElementById('hot').value;
+            }
+            else if (document.getElementById('iced').checked){
+                type = document.getElementById('iced').value;
+            }
+
+            if(document.getElementById('tall').checked){
+                size = document.getElementById('tall').value;
+            }
+            else if(document.getElementById('grande').checked){
+                size = document.getElementById('grande').value;
+            }
+            else if(document.getElementById('venti').checked){
+                size = document.getElementById('venti').value;
+            }
+
+            if(document.getElementById('warm').checked){
+                warmed = document.getElementById('warm').value;
+            }
+            else if(document.getElementById('cold').checked){
+                warmed = document.getElementById('cold').value;
+            }
+
+            axios
+                .post("dbrequest.php", 
+                    {
+                        order: true,
+                        productName: name,
+                        subtypeID: subtype,
+                        itemPrice: price,
+                        qty: quantity,
+                        sirachaQty: sirachaQuantity,
+                        drinkType: type,
+                        drinkSize: size,
+                        cakeWarmed: warmed,
+                    }
+                )
+                .then((response) => getOrders(response))
+                .catch((error)=> {
+                    console.log(error);
+                });
+        }
+
+        function getOrders(response){
+            axios
+                .get("dbrequest.php", {
+                    params:
+                    {
+                        order: true,
+                    }
+                })
+                .then((response) => displayReceipt(response))
+                .catch((error)=> {
+                    console.log(error);
+                });
+        }
+
+        function displayReceipt(response){
+            var result = response;
+
+            console.log(result);
+
+            var layout = `<table>`;
+            var temp = "";
+            for(i in result.data){
+                if(result.data[i].drinkType== 1){
+                    var temp = "Hot ";
+                }
+                else if(result.data[i].drinkType== 2){
+                    var temp= "Iced ";
+                }
+                else{
+                    var temp = "";
+                }
+
+                if(result.data[i].sirachaQty == null){
+                    result.data[i].sirachaQty = "";
+                }
+                if(result.data[i].cakeWarmed == null){
+                    result.data[i].cakeWarmed = "";
+                }
+                if(result.data[i].drinkSize==null){
+                    result.data[i].drinkSize = "";
+                }
+                layout+=
+                `<tr>
+                    <td>
+                        ${temp}${result.data[i].itemName}
+                    </td>
+                    <td>
+                        ${result.data[i].quantity}
+                    </td>
+                    <td>
+                        ${result.data[i].itemPrice}
+                    </td>
+                    <td>
+                        ${result.data[i].drinkSize}
+                    </td>
+                    <td>
+                        ${result.data[i].sirachaQty}
+                    </td>
+                    <td>
+                        ${result.data[i].cakeWarmed}
+                    </td>
+                    <td>
+                        ${result.data[i].totalPrice}
+                    </td>
+                    <td>
+                        <button id="${result.data[i].orderID}" onclick="cancelItem()">Cancel</button>
+                    </td>
+                </tr>`;
+
+            }
+            layout += `</table>`;
+            
+            document.getElementById('testReceipt').innerHTML = layout;
+        }
     </script>
 
 

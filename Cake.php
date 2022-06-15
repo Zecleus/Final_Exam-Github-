@@ -2,7 +2,7 @@
 
 class Cake extends Food{
 
-    protected bool $warm;
+    protected string $warm;
 
     public function __construct($name, $price, $warm,$qty)
     {

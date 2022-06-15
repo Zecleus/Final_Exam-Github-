@@ -29,7 +29,7 @@ class Beverage implements IConsumable{
     public function setPrice($newPrice){
         $this->price = $newPrice;
     }
-    public function totalPrice()
+    public function getTotalPrice()
     {
         return $this->price*$this->qty;
     }

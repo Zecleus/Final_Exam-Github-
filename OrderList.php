@@ -1,8 +1,14 @@
 <?php
 
-require_once 'init2.php';
+// require_once 'init2.php';
+require_once "Session.php";
 
 use Sessions\Session;
+
+if(!isset($_SESSION)){
+    Session::start();
+}
+
 
 class OrderList{
 
@@ -49,14 +55,14 @@ class OrderList{
         }
     }
 
-    public function addCoffee(string $name, float $price, $size, $temp, $qty){
-        if($size == 1){
+    public function addCoffee(string $name, float $price, string $size, $temp, $qty){
+        if($size == "1"){
             $additional = 0;
         }
-        else if($size == 2){
+        else if($size == "2"){
             $additional = 50;
         }
-        else if($size == 2){
+        else if($size == "3"){
             $additional = 90;
         }
 
@@ -72,14 +78,14 @@ class OrderList{
         }
     }
 
-    public function addTea(string $name, float $price, $size, $temp, $qty){
-        if($size == 1){
+    public function addTea(string $name, float $price, string $size, $temp, $qty){
+        if($size == "1"){
             $additional = 0;
         }
-        else if($size == 2){
+        else if($size == "2"){
             $additional = 50;
         }
-        else if($size == 2){
+        else if($size == "3"){
             $additional = 90;
         }
 
@@ -96,15 +102,15 @@ class OrderList{
         
     }
     
-    public function addFrappuccino(string $name, float $price, $size, $qty){
+    public function addFrappuccino(string $name, float $price, string $size, $qty){
 
-        if($size == 1){
+        if($size == "1"){
             $additional = 0;
         }
-        else if($size == 2){
+        else if($size == "2"){
             $additional = 50;
         }
-        else if($size == 2){
+        else if($size == "3"){
             $additional = 90;
         }
 
