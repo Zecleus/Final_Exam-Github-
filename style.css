@@ -1,156 +1,252 @@
-h1 {
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 40px;
-}
-
-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    font-weight: normal;
-}
-
-input[type=text] {
-    width: 20%;
-    padding: 12px 20px;
-    margin: 10px 10;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    text-align: center;
-}
-
-#consumables {
-    margin-top: 5%;
-}
-
-.dropdownForm {
-    margin-right: 80%;
-    position: relative;
-    z-index: 10;
-    display: inline-block;
-}
-
-.radio {
-    margin-right: 63%;
-    margin-top: 5%;
-    position: absolute;
-}
-
-#subtype {
-    margin-top: -6%;
-    margin-left: 20%;
-}
-
-.choice__hover {
-    display: inline-block;
-    padding: 10px 80px;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 3px;
-    background-color: rgb(46, 207, 127);
-    color: #ffffff;
-    border: 0 solid rgb(46, 207, 127);
-    cursor: pointer;
-}
-
-.choice__hover:hover {
-    background-color: rgb(46, 207, 127);
-}
-
-.choice__menu {
-    position: absolute;
-    display: none;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: #ffffff;
-    color: #222222;
-    box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);
-}
-
-.dropdownForm:hover .choice__menu {
-    display: block;
-}
-
-.choice__menu a {
-    display: block;
-    padding: 10px;
-    text-decoration: none;
-    border-width: 0;
-    border-top: 1px solid #e0e0e0;
-}
-
-.choice__menu a:hover {
-    background-color: #222222;
-    color: #ffffff;
-}
-
-#plusMinus {
-    width: 300px;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 50px;
-}
-
-.value-button {
-    display: inline-block;
-    border: 1px solid #ddd;
-    margin: 0px;
-    width: 40px;
-    height: 20px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 11px 0;
-    background: #eee;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.value-button:hover {
-    cursor: pointer;
-}
-
-#plusMinus #decrease {
-    margin-right: -4px;
-    border-radius: 8px 0 0 8px;
-}
-
-#plusMinus #increase {
-    margin-left: -4px;
-    border-radius: 0 8px 8px 0;
-}
-
-#plusMinus #input-wrap {
-    margin: 0px;
-    padding: 0px;
-}
-
-input#number {
-    text-align: center;
-    border: none;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    margin: 0px;
-    width: 40px;
-    height: 40px;
-}
-
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.invoice {
-    margin-left: 70%;
-}
+    body {
+        background-image: url("starbucksBG.png");
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    #sbLogo {
+        padding-top: 1%;
+        margin-left: 5%;
+    }
+    
+    #orderText {
+        margin-top: -4%;
+    }
+    
+    #CNText {
+        margin-right: 78%;
+        margin-top: 3%;
+    }
+    
+    h1 {
+        margin-top: -5.5%;
+        margin-left: 12%;
+        font-size: 40px;
+        color: #006241;
+    }
+    
+    h2 {
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    form {
+        text-align: center;
+        font-weight: normal;
+    }
+    
+    .customerName {
+        margin-left: -59%;
+    }
+    
+    .cName {
+        width: 9%;
+        padding: 5px;
+        margin: 15px;
+        box-sizing: border-box;
+        font-size: 24px;
+        text-align: left;
+        background-color: transparent;
+        color: #006241;
+        font-family: 'Poppins', sans-serif;
+        outline: none;
+        outline-style: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: solid #006241 2px;
+    }
+    
+    #consumables {
+        margin-right: 76%;
+        padding-bottom: 3%;
+    }
+    
+    #consumablesText {
+        margin-right: 15%;
+    }
+    
+    #subtype {
+        margin-right: 42.5%;
+        width: 274px;
+    }
+    
+    #subtypeText {
+        margin-right: 51%;
+        margin-top: -9.4%;
+    }
+    
+    #menuText {
+        text-align: left;
+        margin-left: 17.5%;
+    }
+    
+    #menu {
+        margin-right: 69.7%;
+        margin-top: -1%;
+    }
+    
+    #product {
+        width: 370px
+    }
+    
+    .dropdownForm select {
+        border-radius: 5px;
+        content: icon;
+        background-color: #006241;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        color: white;
+        padding: 20px;
+        width: 250px;
+        font-size: 20px;
+        cursor: pointer;
+        outline: none;
+    }
+    
+    option:hover {
+        cursor: pointer;
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+    
+    #qtyText {
+        margin-top: 5%;
+    }
+    
+    #qty {
+        margin-top: -8.3%;
+        margin-left: 23%;
+        width: 17%;
+    }
+    
+    .plusMinus {
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        width: 13%;
+        box-sizing: border-box;
+        font-size: 24px;
+        background-color: transparent;
+        color: #006241;
+        font-family: 'Poppins', sans-serif;
+        outline: none;
+        outline-style: none;
+    }
+    
+    #siracha {
+        width: 17%;
+        margin-top: -5%;
+    }
+    
+    #sirachaText {
+        margin-left: 15%;
+    }
+    
+    input[type=button] {
+        background-color: #006241;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+        border-radius: 5px;
+        border: none;
+        font-size: 20px;
+        color: white;
+        width: 37px;
+        height: 37px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    
+    #bevrgTemp {
+        margin-top: -13%;
+        margin-left: -38%;
+    }
+    
+    #bvgText {
+        margin-left: -4.5%;
+    }
+    
+    #cupSize2 {
+        display: inline-flex;
+        overflow: hidden;
+        border: 3px solid #006241;
+        border-radius: 5px;
+        vertical-align: middle;
+    }
+    
+    #bvgDiv {
+        display: inline-flex;
+        overflow: hidden;
+        border: 3px solid #006241;
+        border-radius: 5px;
+        vertical-align: middle;
+    }
+    
+    .cupInput,
+    .bvgInput {
+        display: none;
+    }
+    
+    .cupClass {
+        padding: 10px 25px;
+        font-size: 20px;
+        color: #006241;
+        cursor: pointer;
+        vertical-align: middle;
+        transition: background 0.1s;
+    }
+    
+    .tempClass {
+        padding: 10px 25px;
+        font-size: 20px;
+        color: #006241;
+        cursor: pointer;
+        vertical-align: middle;
+        transition: background 0.1s;
+    }
+    
+    .cupInput:checked+.cupClass,
+    .bvgInput:checked+.tempClass {
+        background: #006241;
+        color: #ffff;
+        font-weight: bold;
+    }
+    
+    #cupSize {
+        margin-top: -21%;
+        margin-right: 71.5%;
+    }
+    
+    #cupSizeText {
+        margin-right: 50%;
+    }
+    
+    .invoice {
+        margin-top: -47%;
+        margin-left: 45%;
+        width: 600px;
+        border-radius: 3px;
+    }
+    
+    h3 {
+        font-weight: bold;
+        text-align: center;
+        font-size: 24px;
+        margin-left: 50%;
+    }
+    
+    th {
+        color: #ddd;
+        background-color: #006241;
+    }
+    
+    table {
+        border-radius: 5px;
+        empty-cells: show;
+        width: 155%;
+        height: 20%;
+        border: 3px solid #006241;
+    }
+    
+    .table td,
+    .table th {
+        text-align: center;
+    }
