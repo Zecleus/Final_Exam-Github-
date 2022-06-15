@@ -94,15 +94,17 @@ if(isset($data['order'])){
         $data['drinkType']= null;
         $data['sirachaQty'] = null;
 
+       
 
         $customerOrderList->addCake($data['productName'], $data['itemPrice'], $data['cakeWarmed'], $data['qty']);
 
-        if( $data['cakeWarmed'] == "1"){
+        if( $data['cakeWarmed'] === "1"){
             $data['cakeWarmed'] = "Yes";
         }
-        else if ( $data['cakeWarmed'] == "2"){
-            $data['cakeWarmed'] == "No";
+        else if ( $data['cakeWarmed'] === "2"){
+            $data['cakeWarmed'] = "No";
         }
+        
     }
     else if($subtypeID === "4"){
         
@@ -172,6 +174,19 @@ if(isset($_GET['order'])){
    
     $jsonResult = json_encode($result);
     echo $jsonResult;
+}
+
+if(isset($data['delete'])){
+
+//     // $sessionDelete = $data['toBeCanceled']-1;
+
+//     // Session::removeSpecificElement('orderList', $sessionDelete);
+    //Sessionp['orderList'] kay history of all orders canceled or not
+    $result = $db->table('Orders')->where('orderID', $data['toBeCanceled'])->delete();
+
+    $jsonResult = json_encode($result);
+    echo $jsonResult;
+
 }
     
     
