@@ -1,6 +1,6 @@
 
         window.addEventListener("load", getOrders);
-        document.getElementById('type').addEventListener("change", getSubTypes);
+        document.getElementById("type").addEventListener("change", getSubTypes);
 
         //Subtypes display
         function getSubTypes(){

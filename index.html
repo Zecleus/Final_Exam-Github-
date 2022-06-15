@@ -7,8 +7,8 @@
     <meta charset="utf-8">
     <title>Coffee shop</title>
     <script src="axios.js" type="text/javascript"></script>
-    <script src="strbks.js"></script>
-    </script>
+    
+    
     <link href="style.css" rel="stylesheet">
 
 </head>
@@ -26,26 +26,19 @@
                 </div>
                 <div class="dropdownForm" id="consumables">
                     <h2>CONSUMABLES</h2>
-                    <select name = "type" id = "type">
+                    <select name = "type" id ="type">
                         <option disabled selected>Choose</option>
                         <option value="food">Food</option>
                         <option value="beverage">Beverages</option>
                     </select>
-                    <!-- <button class="choice__hover" disabled id="typeButton">Select</button>
-                    <div class="choice__menu">
-                        <a href="#" id="beverage">Beverages</a>
-                        <a href="#" id="food">Food</a>
-                    </div> -->
+                    
                 </div>
                 <div class="dropdownForm" >
                     <h2>SUBTYPES</h2>
                     <select name="subtype" id="subtype">
                         <option disabled selected>Choose</option>
                     </select>
-                    <!-- <button class="choice__hover" disabled id="subtypeButton">Select</button>
-                    <div class="choice__menu" id="choiceMenu" name="choiceMenu">
-                        <a href="#">Please choose a consumable type</a>
-                    </div> -->
+                    
                 </div>
                 <br>
                 
@@ -55,10 +48,7 @@
                     <select name="product" id="product">
                         <option disabled selected>Choose</option>
                     </select>
-                    <!-- <button class="choice__hover" disabled>Select</button>
-                    <div class="choice__menu" id="productMenu" name="productMenu">
-                        <a href="#">Please choose a subtype type</a>
-                    </div> -->
+                   
                 </div>
                 <br>
 
@@ -188,31 +178,10 @@
                 </tfoot>
             </table>
             <br>
-
         </div>
-
     </div>
 
-
-    <!-- javascript functions for the increase decrease -->
-    <!-- <script>
-        function increaseValue() {
-            var value = parseInt(document.getElementById('number').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value++;
-            document.getElementById('number').value = value;
-        }
-
-        function decreaseValue() {
-            var value = parseInt(document.getElementById('number').value, 10);
-            value = isNaN(value) ? 0 : value;
-            value < 1 ? value = 1 : '';
-            value--;
-            document.getElementById('number').value = value;
-        }
-    </script> -->
    
-
 
 
 
@@ -273,5 +242,5 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a> -->
 
 </body>
-
+<script src="strbks.js" type="text/javascript"></script>
 </html>
