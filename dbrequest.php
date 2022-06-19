@@ -183,7 +183,8 @@ if(isset($data['delete'])){
 //     // Session::removeSpecificElement('orderList', $sessionDelete);
     //Sessionp['orderList'] kay history of all orders canceled or not
     $result = $db->table('Orders')->where('orderID', $data['toBeCanceled'])->delete();
-
+    $result = $db->select()->from('orders')->getAll();
+    
     $jsonResult = json_encode($result);
     echo $jsonResult;
 

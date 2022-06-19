@@ -245,7 +245,8 @@
             var result = response;
 
 
-            var layout =    `<table>
+            var layout =    `<table >
+                                <thead>
                                 <tr>
                                     <td>
                                         Item Name
@@ -268,7 +269,11 @@
                                     <td>
                                         Price
                                     </td>
+                                    <td>
+                                        <button id="finalizeOrderBtn" onclick="getReceipt()">Finalize Order</button>
+                                    </td>
                                 </tr>
+                                </thead>
                             `;
             var temp = "";
             for(i in result.data){
@@ -330,7 +335,7 @@
             var cancelButton = this.document.activeElement;
             var id = cancelButton.id;
 
-            // document.getElementById('id').addEventListener('click', getOrders);
+            
 
             axios
                 .post("dbrequest.php", 
@@ -339,12 +344,15 @@
                         toBeCanceled: id,
                     }
                 )
-                .then((response) => {
-                    console.log(response);
-                })
+                .then((response) => getOrders(response))
                 .catch((error)=> {
                     console.log(error);
                 });
+
+  
+                
+        }
+
+        function getReceipt(){
             
-                location.reload();
         }
