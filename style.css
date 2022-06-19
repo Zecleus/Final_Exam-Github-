@@ -1,252 +1,333 @@
-    body {
-        background-image: url("starbucksBG.png");
-        font-family: 'Poppins', sans-serif;
-    }
-    
-    #sbLogo {
-        padding-top: 1%;
-        margin-left: 5%;
-    }
-    
-    #orderText {
-        margin-top: -4%;
-    }
-    
-    #CNText {
-        margin-right: 78%;
-        margin-top: 3%;
-    }
-    
-    h1 {
-        margin-top: -5.5%;
-        margin-left: 12%;
-        font-size: 40px;
-        color: #006241;
-    }
-    
-    h2 {
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    form {
-        text-align: center;
-        font-weight: normal;
-    }
-    
-    .customerName {
-        margin-left: -59%;
-    }
-    
-    .cName {
-        width: 9%;
-        padding: 5px;
-        margin: 15px;
-        box-sizing: border-box;
-        font-size: 24px;
-        text-align: left;
-        background-color: transparent;
-        color: #006241;
-        font-family: 'Poppins', sans-serif;
-        outline: none;
-        outline-style: none;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: solid #006241 2px;
-    }
-    
-    #consumables {
-        margin-right: 76%;
-        padding-bottom: 3%;
-    }
-    
-    #consumablesText {
-        margin-right: 15%;
-    }
-    
-    #subtype {
-        margin-right: 42.5%;
-        width: 274px;
-    }
-    
-    #subtypeText {
-        margin-right: 51%;
-        margin-top: -9.4%;
-    }
-    
-    #menuText {
-        text-align: left;
-        margin-left: 17.5%;
-    }
-    
-    #menu {
-        margin-right: 69.7%;
-        margin-top: -1%;
-    }
-    
-    #product {
-        width: 370px
-    }
-    
-    .dropdownForm select {
-        border-radius: 5px;
-        content: icon;
-        background-color: #006241;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-        color: white;
-        padding: 20px;
-        width: 250px;
-        font-size: 20px;
-        cursor: pointer;
-        outline: none;
-    }
-    
-    option:hover {
-        cursor: pointer;
-        background-color: #ddd;
-        border-radius: 5px;
-    }
-    
-    #qtyText {
-        margin-top: 5%;
-    }
-    
-    #qty {
-        margin-top: -8.3%;
-        margin-left: 23%;
-        width: 17%;
-    }
-    
-    .plusMinus {
-        text-align: center;
-        font-weight: bold;
-        border: none;
-        width: 13%;
-        box-sizing: border-box;
-        font-size: 24px;
-        background-color: transparent;
-        color: #006241;
-        font-family: 'Poppins', sans-serif;
-        outline: none;
-        outline-style: none;
-    }
-    
-    #siracha {
-        width: 17%;
-        margin-top: -5%;
-    }
-    
-    #sirachaText {
-        margin-left: 15%;
-    }
-    
-    input[type=button] {
-        background-color: #006241;
-        box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-        border-radius: 5px;
-        border: none;
-        font-size: 20px;
-        color: white;
-        width: 37px;
-        height: 37px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-    }
-    
-    #bevrgTemp {
-        margin-top: -13%;
-        margin-left: -38%;
-    }
-    
-    #bvgText {
-        margin-left: -4.5%;
-    }
-    
-    #cupSize2 {
-        display: inline-flex;
-        overflow: hidden;
-        border: 3px solid #006241;
-        border-radius: 5px;
-        vertical-align: middle;
-    }
-    
-    #bvgDiv {
-        display: inline-flex;
-        overflow: hidden;
-        border: 3px solid #006241;
-        border-radius: 5px;
-        vertical-align: middle;
-    }
-    
-    .cupInput,
-    .bvgInput {
-        display: none;
-    }
-    
-    .cupClass {
-        padding: 10px 25px;
-        font-size: 20px;
-        color: #006241;
-        cursor: pointer;
-        vertical-align: middle;
-        transition: background 0.1s;
-    }
-    
-    .tempClass {
-        padding: 10px 25px;
-        font-size: 20px;
-        color: #006241;
-        cursor: pointer;
-        vertical-align: middle;
-        transition: background 0.1s;
-    }
-    
-    .cupInput:checked+.cupClass,
-    .bvgInput:checked+.tempClass {
-        background: #006241;
-        color: #ffff;
-        font-weight: bold;
-    }
-    
-    #cupSize {
-        margin-top: -21%;
-        margin-right: 71.5%;
-    }
-    
-    #cupSizeText {
-        margin-right: 50%;
-    }
-    
-    .invoice {
-        margin-top: -47%;
-        margin-left: 45%;
-        width: 600px;
-        border-radius: 3px;
-    }
-    
-    h3 {
-        font-weight: bold;
-        text-align: center;
-        font-size: 24px;
-        margin-left: 50%;
-    }
-    
-    th {
-        color: #ddd;
-        background-color: #006241;
-    }
-    
-    table {
-        border-radius: 5px;
-        empty-cells: show;
-        width: 155%;
-        height: 20%;
-        border: 3px solid #006241;
-    }
-    
-    .table td,
-    .table th {
-        text-align: center;
-    }
+body {
+    background-image: url("starbucksBG.png");
+    font-family: 'Poppins', sans-serif;
+}
+
+#a {
+    height: 100%;
+}
+
+#b {
+    height: 100%;
+}
+
+.orderDiv {
+    width: 50%;
+}
+
+#sbLogo {
+    padding-top: 1%;
+    margin-left: 5%;
+}
+
+#orderText {
+    margin-top: -4%;
+    width: 20px;
+}
+
+#CNText {
+    margin-right: 78%;
+    margin-top: 3%;
+}
+
+h1 {
+    width: 5px;
+    margin-top: -5.5%;
+    margin-left: 12%;
+    font-size: 40px;
+    color: #006241;
+}
+
+h2 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.customerName {
+    text-align: center;
+    font-weight: normal;
+    margin-left: -59%;
+    margin-top: -1.5%;
+}
+
+#CNText {
+    margin-top: 2%;
+}
+
+.cName {
+    width: 9%;
+    padding: 5px;
+    margin: 15px;
+    box-sizing: border-box;
+    font-size: 24px;
+    text-align: left;
+    background-color: transparent;
+    color: #006241;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    outline-style: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid #006241 2px;
+}
+
+#consumables {
+    margin-left: 5.3%;
+    margin-bottom: 5%;
+    position: absolute;
+}
+
+#consumablesText {
+    margin-right: 90%;
+}
+
+#subtype {
+    margin-left: 21.3%;
+    width: 274px;
+}
+
+#warmed {
+    margin-top: 4%;
+    margin-left: 5.3%;
+}
+
+#subtypeText {
+    margin-right: 51%;
+}
+
+#menuText {
+    text-align: left;
+    margin-left: 17.5%;
+}
+
+#menu {
+    margin-right: 70%;
+    margin-top: -1%;
+}
+
+#product {
+    width: 400px;
+    margin-left: 17.3%;
+}
+
+.dropdownForm select {
+    border-radius: 5px;
+    content: icon;
+    background-color: #006241;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color: white;
+    padding: 20px;
+    width: 250px;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+option:hover {
+    cursor: pointer;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+#qtyText {
+    margin-bottom: 4%;
+    margin-top: 2%;
+    margin-left: -60%;
+}
+
+#qty {
+    margin-top: -8%;
+    margin-left: 29.3%;
+    width: 17%;
+}
+
+.plusMinus {
+    text-align: center;
+    font-weight: bold;
+    border: none;
+    width: 13%;
+    box-sizing: border-box;
+    font-size: 24px;
+    background-color: transparent;
+    color: #006241;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    outline-style: none;
+}
+
+#siracha {
+    width: 17%;
+    margin-top: 3.5%;
+    margin-left: 5.2%;
+}
+
+#sirDiv {
+    margin-top: 4.6%;
+}
+
+#sirachaText {
+    margin-right: 39%;
+    font-size: 24px;
+}
+
+input[type=button] {
+    background-color: #006241;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 20px;
+    color: white;
+    width: 37px;
+    height: 37px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#bevrgTemp {
+    margin-top: -7%;
+    margin-left: 26.1%;
+}
+
+#bvgText {
+    margin-left: -96%;
+    margin-top: 1.3%;
+}
+
+#cupDiv {
+    display: inline-flex;
+    border: 3px solid #006241;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+}
+
+#bvgDiv {
+    display: inline-flex;
+    border: 3px solid #006241;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+}
+
+#cakeDiv {
+    display: inline-flex;
+    border: 3px solid #006241;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    border-radius: 5px;
+}
+
+.cupInput,
+.bvgInput,
+.cakeInput {
+    display: none;
+}
+
+.cupClass {
+    padding: 10px 25px;
+    font-size: 20px;
+    color: #006241;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.tempClass {
+    padding: 10px 25px;
+    font-size: 20px;
+    color: #006241;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.cakeClass {
+    padding: 10px 25px;
+    font-size: 20px;
+    color: #006241;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.cupInput:checked+.cupClass,
+.bvgInput:checked+.tempClass,
+.cakeInput:checked+.cakeClass {
+    background: #006241;
+    color: #ffff;
+    font-weight: bold;
+}
+
+#cupSize {
+    margin-top: 3%;
+    margin-left: 5.3%;
+}
+
+.flex-container {
+    display: flex;
+}
+
+#cupSizeText {
+    margin-left: -96.5%;
+}
+
+#cakeText {
+    margin-right: 75.2%;
+}
+
+#testReceipt {
+    margin-left: 43%;
+    margin-top: -45%;
+}
+
+#orderBtn {
+    position: inherit;
+    margin-top: 5%;
+    margin-left: 5.3%;
+}
+
+input[type=button]#orderItem {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+    content: icon;
+    background-color: #006241;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color: white;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+}
+
+table {
+    border: 3px solid #006241;
+    height: 80%;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
+td {
+    padding: 30px;
+    background-color: #006241;
+    color: #ddd;
+}
+
+#finalizeOrderBtn {
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3px;
+    font-weight: bold;
+    border-radius: 5px;
+    content: icon;
+    background-color: #006241;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    color: white;
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    font-size: 20px;
+    outline: none;
+    margin-top: -5%;
+}

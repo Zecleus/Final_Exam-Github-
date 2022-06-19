@@ -7,124 +7,203 @@
     <meta charset="utf-8">
     <title>Coffee shop</title>
     <script src="axios.js" type="text/javascript"></script>
-    
-    
+
+
     <link href="style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div style="min-height: 400px">
+    <div id="a">
         <img src="Starbucks-Logo.png" alt="starbucksLogo" style="width:120px;height:120px" id="sbLogo">
         <h1>STARBUCKS</h1>
         <br>
         <h1 id="orderText">ORDER</h1>
         <div>
-            <h2>CUSTOMER NAME</h2>
-            
-                <div class="customerName">
-                    <input type="text" placeholder="First Name"  />
-                    <input type="text" placeholder="Last Name"  />
-                </div>
-                <div class="dropdownForm" id="consumables">
-                    <h2>CONSUMABLES</h2>
-                    <select name = "type" id ="type">
+            <h2 id="CNText">CUSTOMER NAME</h2>
+            <div class="customerName">
+                <input type="text" class="cName" placeholder="First Name" />
+                <input type="text" class="cName" placeholder="Last Name" />
+            </div>
+            <div class="dropdownForm" id="consumables">
+                <h2 id="consumablesText">CONSUMABLES</h2>
+                <select name="type" id="type">
                         <option disabled selected>Choose</option>
                         <option value="food">Food</option>
                         <option value="beverage">Beverages</option>
-                    </select>
-                    
-                </div>
-                <div class="dropdownForm">
-                    <h2 id="subtypeText">SUBTYPES</h2>
-                    <select name="subtype" id="subtype">
+                </select>
+            </div>
+            <div class="dropdownForm">
+                <h2 id="subtypeText">SUBTYPES</h2>
+                <select name="subtype" id="subtype">
                         <option disabled selected>Choose</option>
                     </select>
-                    
-                </div>
-                <br>
+
+            </div>
+            <br>
 
 
-                <div class="dropdownForm" id="menu">
-                    <h2 id="menuText">MENU</h2>
-                    <select name="product" id="product">
+            <div class="dropdownForm" id="menu">
+                <h2 id="menuText">MENU</h2>
+                <select name="product" id="product">
                         <option disabled selected>Choose</option>
                     </select>
-                   
-                </div>
-                <br>
+
+            </div>
+            <br>
 
 
-                <div class="radio" id="qty" style="display:block">
-                    <h2 id="qtyText">QUANTITY</h2>
+            <div class="radio" id="qty" style="display:block">
+                <h2 id="qtyText">QUANTITY</h2>
+                <div id="qtyDiv">
                     <input type="button" id="minusQuantity" value="-">
                     <input type="text" id="quantity" class="plusMinus" style="display: inline" value="1">
                     <input type="button" id="addQuantity" value="+">
                 </div>
-               
+            </div>
 
 
-                <div class="radio" id="siracha" style="display:none">
-                    <h2 id="sirachaText">Siracha Sauce</h2>
+            <div class="radio" id="siracha" style="display:none">
+                <h2 id="sirachaText">SIRACHA SAUCE</h2>
+                <div id="sirDiv">
                     <input type="button" id="minusSiracha" value="-">
                     <input type="text" id="sirachaAmount" class="plusMinus" style="display: inline" value="1" disabled>
                     <input type="button" id="addSiracha" value="+">
                 </div>
-               
+            </div>
 
-                <!-- hot or iced -->
-
-                <div class="radio" id="bevrgTemp" style="display:none">
-                    <h2 id="bvgText">Type</h2>
-                    <div id="bvgDiv">
-                        <input type="radio" id="hot" name="temp" class="bvgInput" value="1" checked>
-                        <label for="hot" class="tempClass">Hot</label><br>
-                        <input type="radio" id="iced" name="temp" class="bvgInput" value="2">
-                        <label for="iced" class="tempClass">Iced</label><br>
-                    </div>
+            <!-- sizes ni nga part -->
+            <div class="radio" id="cupSize" style="display:none">
+                <h2 id="cupSizeText">SIZES</h2>
+                <div id="cupDiv">
+                    <input type="radio" id="tall" class="cupInput" name="size" value="1" checked>
+                    <label for="tall" class="cupClass">TALL</label>
+                    <input type="radio" id="grande" class="cupInput" name="size" value="2">
+                    <label for="grande" class="cupClass">GRANDE</label>
+                    <input type="radio" id="venti" class="cupInput" name="size" value="3">
+                    <label for="venti" class="cupClass">VENTI</label>
                 </div>
-                
+            </div>
 
+            <!-- hot or iced -->
 
-                <!-- sizes ni nga part -->
-                <div class="radio" id="cupSize" style="display:none">
-                    <h2 id="cupSizeText">SIZES</h2>
-                    <div id="cupSize2">
-                        <input type="radio" id="tall" class="cupInput" name="size" value="1" checked>
-                        <label for="tall" class="cupClass">TALL</label>
-                        <input type="radio" id="grande" class="cupInput" name="size" value="2">
-                        <label for="grande" class="cupClass">GRANDE</label>
-                        <input type="radio" id="venti" class="cupInput" name="size" value="3">
-                        <label for="venti" class="cupClass">VENTI</label>
-                    </div>
+            <div class="radio" id="bevrgTemp" style="display:none">
+                <h2 id="bvgText">TYPE</h2>
+                <div id="bvgDiv">
+                    <input type="radio" id="hot" name="temp" class="bvgInput" value="1" checked>
+                    <label for="hot" class="tempClass">Hot</label><br>
+                    <input type="radio" id="iced" name="temp" class="bvgInput" value="2">
+                    <label for="iced" class="tempClass">Iced</label><br>
                 </div>
+            </div>
 
-                <!-- warmed or not output -->
+            <!-- warmed or not output -->
 
-                <div class="dropdownForm" id="warmed" style="display:none">
-                    <h2>Do you want your cake warmed?</h2>
-                    <input type="radio" id="warm" name="warmed" value="1" checked>
-                    <label for="warm">Yes please!</label>
-                    <input type="radio" id="cold" name="warmed" value="2">
-                    <label for="cold">No thanks</label>
+            <div class="radio" id="warmed" style="display:none">
+                <h2 id="cakeText">DO YOU WANT YOUR CAKE WARMED?</h2>
+                <div id="cakeDiv">
+                    <input type="radio" id="warm" class="cakeInput" name="warmed" value="1" checked>
+                    <label for="warm" class="cakeClass">Yes please!</label>
+                    <input type="radio" id="cold" class="cakeInput" name="warmed" value="2">
+                    <label for="cold" class="cakeClass">No thanks</label>
                 </div>
-
-                <div id="orderBtn">
-                    <input type="button" id="orderItem" name="orderItem" value="Order Item" >
-                </div>
-
-                
-                <div id="testReceipt">
-                    
-                </div>
-            
-                <div id = "receipt" style="display:none">
-
-                </div>
+            </div>
+            <div id="orderBtn">
+                <input type="button" id="orderItem" name="orderItem" value="ADD ORDER">
+            </div>
         </div>
     </div>
+    <div>
+
+    </div>
+    <div id="testReceipt">
+
+        <button id="finalizeOrderBtn" onclick="getReceipt()">Cancel</button>
+    </div>
+
+    <div id="receipt" style="display:none">
+
+    </div>
+
+    <!-- receipt Part -->
+    <!-- <script>
+        function increaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            document.getElementById('number').value = value;
+        }
+
+        function decreaseValue() {
+            var value = parseInt(document.getElementById('number').value, 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            document.getElementById('number').value = value;
+        }
+    </script> -->
+
+
+
+
+    <!-- Reservation End -->
+
+
+    <!-- Footer Start
+    <div class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top ">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4 ">
+            <div class="col-lg-3 col-md-6 mb-5 ">
+                <h4 class="text-white text-uppercase mb-4 " style="letter-spacing: 3px; ">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt mr-2 "></i>123 Street, New York, USA</p>
+                <p><i class="fa fa-phone-alt mr-2 "></i>+012 345 67890</p>
+                <p class="m-0 "><i class="fa fa-envelope mr-2 "></i>info@example.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 ">
+                <h4 class="text-white text-uppercase mb-4 " style="letter-spacing: 3px; ">Follow Us</h4>
+                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
+                <div class="d-flex justify-content-start ">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2 " href="# "><i class="fab fa-twitter "></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2 " href="# "><i class="fab fa-facebook-f "></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2 " href="# "><i class="fab fa-linkedin-in "></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square " href="# "><i class="fab fa-instagram "></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 ">
+                <h4 class="text-white text-uppercase mb-4 " style="letter-spacing: 3px; ">Open Hours</h4>
+                <div>
+                    <h6 class="text-white text-uppercase ">Monday - Friday</h6>
+                    <p>8.00 AM - 8.00 PM</p>
+                    <h6 class="text-white text-uppercase ">Saturday - Sunday</h6>
+                    <p>2.00 PM - 8.00 PM</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 ">
+                <h4 class="text-white text-uppercase mb-4 " style="letter-spacing: 3px; ">Newsletter</h4>
+                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
+                <div class="w-100 ">
+                    <div class="input-group ">
+                        <input type="text " class="form-control border-light " style="padding: 25px; " placeholder="Your Email ">
+                        <div class="input-group-append ">
+                            <button class="btn btn-primary font-weight-bold px-3 ">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5 " style="border-color: rgba(256, 256, 256, .1) !important; ">
+            <p class="mb-2 text-white ">Copyright &copy; <a class="font-weight-bold " href="# ">Domain</a>. All Rights Reserved.</a>
+            </p>
+            <p class="m-0 text-white ">Designed by <a class="font-weight-bold " href="https://htmlcodex.com ">HTML Codex</a></p>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="# " class="btn btn-lg btn-primary btn-lg-square back-to-top "><i class="fa fa-angle-double-up "></i></a>
 
 </body>
 <script src="strbks.js" type="text/javascript"></script>
+
 </html>
