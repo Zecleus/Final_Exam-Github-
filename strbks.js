@@ -246,6 +246,7 @@
 
 
             var layout =    `<table >
+                                <thead>
                                 <tr>
                                     <td>
                                         Item Name
@@ -268,7 +269,11 @@
                                     <td>
                                         Price
                                     </td>
+                                    <td>
+                                        <button id="finalizeOrderBtn" onclick="getReceipt()">Finalize Order</button>
+                                    </td>
                                 </tr>
+                                </thead>
                             `;
             var temp = "";
             for(i in result.data){
@@ -344,8 +349,7 @@
                     console.log(error);
                 });
 
-                document.getElementById(id).addEventListener('click', getOrders);
-                console.log(id);
+  
                 
         }
 
