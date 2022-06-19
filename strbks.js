@@ -272,6 +272,11 @@
                                     <td>
                                         <button id="finalizeOrderBtn" onclick="getReceipt()">Finalize Order</button>
                                     </td>
+                                    <td>
+                                    asjdfbjhsdfbkhjasdvfbkhjadsvbf
+                                    </td>
+
+
                                 </tr>
                                 </thead>
                             `;

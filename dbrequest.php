@@ -181,7 +181,7 @@ if(isset($data['delete'])){
 //     // $sessionDelete = $data['toBeCanceled']-1;
 
 //     // Session::removeSpecificElement('orderList', $sessionDelete);
-    //Sessionp['orderList'] kay history of all orders canceled or not
+    //Session['orderList'] kay history of all orders canceled or not
     $result = $db->table('Orders')->where('orderID', $data['toBeCanceled'])->delete();
     $result = $db->select()->from('orders')->getAll();
     
