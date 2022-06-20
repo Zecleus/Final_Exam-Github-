@@ -347,48 +347,44 @@ function getReceipt() {
     document.getElementById("testReceipt").style.display = "none";
     document.getElementById("receipt").style.display = "block";
 
-    //test table rani pag test nako sa button. Ang button pag reset kay usa raman i delete sa database
-    //so basically wa siyay gamit. need pa siya i drop jud ang table para reset.
-    var layout = `<table>
-                                <thead>
-                                <tr>
-                                    <td>
-                                        ITEM NAME
-                                    </td>
-                                    <td>
-                                        QUANTITY
-                                    </td>
-                                    <td>
-                                        BASE PRICE
-                                    </td>
-                                    <td>
-                                        DRINK SIZE
-                                    </td>
-                                    <td>
-                                        ADDITIONAL SIRACHA
-                                    </td>
-                                    <td>
-                                        WARMED CAKE?
-                                    </td>
-                                    <td>
-                                        PRICE
-                                    </td>
-                                    <td>
-                                        <button id="printReceipt" onclick="printReceipt()">PRINT RECEIPT </button>
-                                    </td>
+    //test table rani pag test nako sa button. 
+    // var layout = `<table>
+    //                             <thead>
+    //                             <tr>
+    //                                 <td>
+    //                                     ITEM NAME
+    //                                 </td>
+    //                                 <td>
+    //                                     QUANTITY
+    //                                 </td>
+    //                                 <td>
+    //                                     BASE PRICE
+    //                                 </td>
+    //                                 <td>
+    //                                     DRINK SIZE
+    //                                 </td>
+    //                                 <td>
+    //                                     ADDITIONAL SIRACHA
+    //                                 </td>
+    //                                 <td>
+    //                                     WARMED CAKE?
+    //                                 </td>
+    //                                 <td>
+    //                                     PRICE
+    //                                 </td>
+    //                                 <td>
+    //                                     <button id="printReceipt" onclick="printReceipt()">PRINT RECEIPT </button>
+    //                                 </td>
 
 
-                                </tr>
-                                </thead>
-                            `;
+    //                             </tr>
+    //                             </thead>
+    //                         `;
 
-    layout += `</table>`
-    document.getElementById('receipt').innerHTML = layout;
+    // layout += `</table>`
+    // document.getElementById('receipt').innerHTML = layout;
 
 }
-
-//ang pag detect sa click functionality kay ibutang ra sa 'onclick' sa button
-//document.getElementById('reset').addEventListener('click', printReceipt);
 
 function printReceipt(){
     axios
@@ -402,5 +398,5 @@ function printReceipt(){
             console.log(error);
         });
 
-    // location.reload();
+    location.reload();
 }

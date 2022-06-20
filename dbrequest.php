@@ -190,20 +190,9 @@ if(isset($data['delete'])){
 
 }
 
-//ang DBLibrary di mugana ug isud ug loop
-//bug ni kay kailangan pajud idrop ang orders table para ma fully reset. If maka find mo fix, palihog lang ayo
 if(isset($_GET['reset'])){
     Session::stop();
 
-    $result = $db->select()->from('orders')->getAll();
-    
-    // foreach($result as $x){
-    //     $deleteResult = $db->table('orders')->where('orderID', $x[0])->delete();
-    // }
-
-    // for($i = 0; $i < count($result); $i++){
-    //     $deleteResult = $db->table('orders')->where('orderID', $result[$i][0])->delete();
-    // }
     $deleteResult = $db->table('orders')->delete();
 
     $jsonResult = json_encode($deleteResult);
