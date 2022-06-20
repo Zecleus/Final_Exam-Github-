@@ -343,5 +343,62 @@ function cancelItem() {
 }
 
 function getReceipt() {
+    document.getElementById("a").style.display = "none";
+    document.getElementById("testReceipt").style.display = "none";
+    document.getElementById("receipt").style.display = "block";
 
+    var layout = `<table>
+                                <thead>
+                                <tr>
+                                    <td>
+                                        ITEM NAME
+                                    </td>
+                                    <td>
+                                        QUANTITY
+                                    </td>
+                                    <td>
+                                        BASE PRICE
+                                    </td>
+                                    <td>
+                                        DRINK SIZE
+                                    </td>
+                                    <td>
+                                        ADDITIONAL SIRACHA
+                                    </td>
+                                    <td>
+                                        WARMED CAKE?
+                                    </td>
+                                    <td>
+                                        PRICE
+                                    </td>
+                                    <td>
+                                        <button id="printReceipt" onclick="printReceipt()">PRINT RECEIPT </button>
+                                    </td>
+
+
+                                </tr>
+                                </thead>
+                            `;
+
+    layout += `</table>`
+    document.getElementById('receipt').innerHTML = layout;
+
+}
+
+//ang pag detect sa click functionality kay ibutang ra sa 'onclick' sa button
+//document.getElementById('reset').addEventListener('click', printReceipt);
+
+function printReceipt(){
+    axios
+        .get("dbrequest.php", {
+            params: {
+                reset: true,
+            }
+        })
+        .then((response) => {console.log(response)})
+        .catch((error) => {
+            console.log(error);
+        });
+
+    location.reload();
 }

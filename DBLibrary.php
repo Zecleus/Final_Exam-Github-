@@ -81,7 +81,8 @@ class DBLibrary implements IDBFuncs
         elseif ($getMethod === 'DBLibrary::getAll')
             $recordset = $dbStatement->fetchAll(PDO::FETCH_BOTH);
 
-        $whereInstanceCounter = 0;
+        $this->swhereInstanceCounter = 0;
+        $this->sql = '';
         
         return $recordset != false ? $recordset : [];
     }
@@ -261,6 +262,7 @@ class DBLibrary implements IDBFuncs
         $this->sql .= $updateWhere;
 
         $result = $this->_executeQuery();
+        $this->sql = '';
 
         return $result;
     }
@@ -275,6 +277,7 @@ class DBLibrary implements IDBFuncs
 
         $result = $this->_executeQuery();
 
+        $this->sql = '';
         return $result;
     }
 }
