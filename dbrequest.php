@@ -201,9 +201,10 @@ if(isset($_GET['reset'])){
     //     $deleteResult = $db->table('orders')->where('orderID', $x[0])->delete();
     // }
 
-    for($i = 0; $i < count($result); $i++){
-        $deleteResult = $db->table('orders')->where('orderID', $result[$i][0])->delete();
-    }
+    // for($i = 0; $i < count($result); $i++){
+    //     $deleteResult = $db->table('orders')->where('orderID', $result[$i][0])->delete();
+    // }
+    $deleteResult = $db->table('orders')->delete();
 
     $jsonResult = json_encode($deleteResult);
     echo $db->showQuery();

@@ -347,6 +347,8 @@ function getReceipt() {
     document.getElementById("testReceipt").style.display = "none";
     document.getElementById("receipt").style.display = "block";
 
+    //test table rani pag test nako sa button. Ang button pag reset kay usa raman i delete sa database
+    //so basically wa siyay gamit. need pa siya i drop jud ang table para reset.
     var layout = `<table>
                                 <thead>
                                 <tr>
@@ -400,5 +402,5 @@ function printReceipt(){
             console.log(error);
         });
 
-    location.reload();
+    // location.reload();
 }
