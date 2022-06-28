@@ -261,7 +261,7 @@ function displayOrder(response) {
                                         PRICE
                                     </td>
                                     <td>
-                                        <button id="finalizeOrderBtn" onclick="getReceipt()">FINALIZE ORDER</button>
+                                        <button id="finalizeOrderBtn" onclick="beforeGetReceipt()">FINALIZE ORDER</button>
                                     </td>
 
 
@@ -338,11 +338,24 @@ function cancelItem() {
             console.log(error);
         });
 
-
-
 }
 
-function getReceipt() {
+function beforeGetReceipt(){
+    axios
+        .get("dbrequest.php", {
+            params: {
+                order: true,
+            }
+        })
+        .then((response) => getReceipt(response))
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+function getReceipt(response) {
+    result = response;
+    var grandTotal = 0;
     document.getElementById("a").style.display = "none";
     document.getElementById("testReceipt").style.display = "none";
     document.getElementById("receipt").style.display = "block";
@@ -380,7 +393,62 @@ function getReceipt() {
                                 </tr>
                                 </thead>
                             `;
-    layout += `</table>`
+
+                            for (i in result.data) {
+                                if (result.data[i].drinkType == 1) {
+                                    var temp = "Hot ";
+                                } else if (result.data[i].drinkType == 2) {
+                                    var temp = "Iced ";
+                                } else {
+                                    var temp = "";
+                                }
+                                if (result.data[i].sirachaQty == null) {
+                                    result.data[i].sirachaQty = "";
+                                }
+                                if (result.data[i].cakeWarmed == null) {
+                                    result.data[i].cakeWarmed = "";
+                                }
+                                if (result.data[i].drinkSize == null) {
+                                    result.data[i].drinkSize = "";
+                                }
+                                layout +=
+                                    `<tr>
+                                            <td>
+                                                ${temp}${result.data[i].itemName}
+                                            </td>
+                                            <td>
+                                                ${result.data[i].quantity}
+                                            </td>
+                                            <td>
+                                                ${result.data[i].itemPrice}
+                                            </td>
+                                            <td>
+                                                ${result.data[i].drinkSize}
+                                            </td>
+                                            <td>
+                                                ${result.data[i].sirachaQty}
+                                            </td>
+                                            <td>
+                                                ${result.data[i].cakeWarmed}
+                                            </td>
+                                            <td>
+                                                ${result.data[i].totalPrice}
+                                            </td>
+                                        </tr>`;
+                                grandTotal += parseInt(result.data[i].totalPrice);
+                        
+                            }
+                            layout += `
+                            <tr>
+                                <td>
+                                    Grand Total
+                                </td>
+                                <td colspan = '6'>
+                                    ${grandTotal}
+                                </td>
+                            </tr>
+                            `
+    layout += `</table><p>Not finished by Francis Galo. Should display the ordered products and the grand total. Also the customer's name</p><br><p>Cuico did the makeshift receipt without the name of the customer just in the time of recording</p>`
     document.getElementById('receipt').innerHTML = layout;
 
 }
@@ -392,10 +460,10 @@ function printReceipt(){
                 reset: true,
             }
         })
-        .then((response) => getReceipt(response))
+        .then((response) => {console.log(response)})
         .catch((error) => {
             console.log(error);
         });
 
-    // location.reload();
+    location.reload();
 }

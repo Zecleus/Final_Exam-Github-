@@ -277,6 +277,12 @@ input[type=button] {
     margin-top: -45%;
 }
 
+#receipt {
+    margin-left: 30%;
+    /* margin-top: -45%; */
+}
+
+
 #orderBtn {
     position: inherit;
     margin-top: 5%;
@@ -329,7 +335,7 @@ thead:first-child td {
 }
 
 #finalizeOrderBtn,
-.cancelButton {
+.cancelButto, #printReceipt {
     font-family: 'Poppins', sans-serif;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
     letter-spacing: 1px;
