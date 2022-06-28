@@ -392,10 +392,10 @@ function printReceipt(){
                 reset: true,
             }
         })
-        .then((response) => {console.log(response)})
+        .then((response) => getReceipt(response))
         .catch((error) => {
             console.log(error);
         });
 
-    location.reload();
+    // location.reload();
 }
