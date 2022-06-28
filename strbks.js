@@ -348,41 +348,40 @@ function getReceipt() {
     document.getElementById("receipt").style.display = "block";
 
     //test table rani pag test nako sa button. 
-    // var layout = `<table>
-    //                             <thead>
-    //                             <tr>
-    //                                 <td>
-    //                                     ITEM NAME
-    //                                 </td>
-    //                                 <td>
-    //                                     QUANTITY
-    //                                 </td>
-    //                                 <td>
-    //                                     BASE PRICE
-    //                                 </td>
-    //                                 <td>
-    //                                     DRINK SIZE
-    //                                 </td>
-    //                                 <td>
-    //                                     ADDITIONAL SIRACHA
-    //                                 </td>
-    //                                 <td>
-    //                                     WARMED CAKE?
-    //                                 </td>
-    //                                 <td>
-    //                                     PRICE
-    //                                 </td>
-    //                                 <td>
-    //                                     <button id="printReceipt" onclick="printReceipt()">PRINT RECEIPT </button>
-    //                                 </td>
+    var layout = `<table>
+                                <thead>
+                                <tr>
+                                    <td>
+                                        ITEM NAME
+                                    </td>
+                                    <td>
+                                        QUANTITY
+                                    </td>
+                                    <td>
+                                        BASE PRICE
+                                    </td>
+                                    <td>
+                                        DRINK SIZE
+                                    </td>
+                                    <td>
+                                        ADDITIONAL SIRACHA
+                                    </td>
+                                    <td>
+                                        WARMED CAKE?
+                                    </td>
+                                    <td>
+                                        PRICE
+                                    </td>
+                                    <td>
+                                        <button id="printReceipt" onclick="printReceipt()">PRINT RECEIPT </button>
+                                    </td>
 
 
-    //                             </tr>
-    //                             </thead>
-    //                         `;
-
-    // layout += `</table>`
-    // document.getElementById('receipt').innerHTML = layout;
+                                </tr>
+                                </thead>
+                            `;
+    layout += `</table>`
+    document.getElementById('receipt').innerHTML = layout;
 
 }
 
